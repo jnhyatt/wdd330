@@ -5,14 +5,14 @@ export default class ProductList {
     }
 
     async renderProductList() {
-        const products = await this.dataSource.getData();
+        const products = await this.dataSource.getData(this.category);
         console.log(products);
         const template = document.getElementById("product-card-template");
         return products.map((product) => {
             const result = template.content.cloneNode(true);
-            result.querySelector("a").href = `product_pages/?product=${product.Id}`;
+            result.querySelector("a").href = `/product_pages/?product=${product.Id}`;
             const img = result.querySelector("img");
-            img.src = product.Image;
+            img.src = product.Images.PrimaryLarge;
             img.alt = product.Name;
             result.querySelector(".card__brand").textContent = product.Brand.Name;
             result.querySelector(".card__name").textContent =
