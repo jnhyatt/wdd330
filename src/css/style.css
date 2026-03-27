@@ -151,6 +151,33 @@ button {
   text-align: center;
 }
 
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+.categories a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--dark-grey);
+}
+
+.categories img {
+  width: 80px;
+  height: 80px;
+}
+
+.categories h3 {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin: 0;
+}
+
 .products {
   margin-top: 2rem;
   padding: 1rem;

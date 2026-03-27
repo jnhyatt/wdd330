@@ -20,7 +20,7 @@ export default class ProductDetails {
         result.querySelector("h3").textContent = product.Brand.Name;
         result.querySelector("h2").textContent = product.NameWithoutBrand;
         const img = result.querySelector("img");
-        img.src = product.Image;
+        img.src = product.Images.PrimaryLarge;
         img.alt = product.Name;
         result.querySelector(".product-card__price").textContent = `$${product.ListPrice}`;
         result.querySelector(".product__color").textContent = product.Colors[0].ColorName;
