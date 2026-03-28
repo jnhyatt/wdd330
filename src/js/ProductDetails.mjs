@@ -7,9 +7,8 @@ export default class ProductDetails {
     }
 
     async addToCart() {
-        const product = await this.dataSource.findProductById(this.productId);
-        const cart = getLocalStorage("so-cart") || [];
-        cart.push(product);
+        const cart = getLocalStorage("so-cart") || {};
+        cart[this.productId] = (cart[this.productId] || 0) + 1;
         setLocalStorage("so-cart", cart);
     }
 
