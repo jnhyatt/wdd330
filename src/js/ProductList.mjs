@@ -6,7 +6,6 @@ export default class ProductList {
 
     async renderProductList() {
         const products = await this.dataSource.getData(this.category);
-        console.log(products);
         const template = document.getElementById("product-card-template");
         return products.map((product) => {
             const result = template.content.cloneNode(true);

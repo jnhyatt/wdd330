@@ -1,7 +1,7 @@
 import { getLocalStorage } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 
-const dataSource = new ProductData();
+const dataSource = new ExternalServices();
 
 async function renderCartContents() {
   const cart = getLocalStorage("so-cart") || {};
