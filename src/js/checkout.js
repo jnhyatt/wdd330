@@ -1,4 +1,5 @@
 import CheckoutProcess from "./CheckoutProcess.mjs";
+import alertMessage from "./alert.mjs";
 
 const checkout = new CheckoutProcess();
 
@@ -20,14 +21,18 @@ document
   .querySelector("#checkout-form")
   .addEventListener("submit", async (e) => {
     e.preventDefault();
+    document.querySelectorAll(".alert").forEach((el) => el.remove());
     try {
       const response = await checkout.checkout(e.target);
       // eslint-disable-next-line no-console
       console.log("Order placed:", response);
-      alert("Order placed successfully!");
     } catch (err) {
       // eslint-disable-next-line no-console
       console.error("Checkout failed:", err);
-      alert("There was a problem placing your order. Please try again.");
+      if (err.name === "servicesError") {
+        Object.values(err.message).forEach((msg) => alertMessage(msg));
+      } else {
+        alertMessage("There was a problem placing your order. Please try again.");
+      }
     }
   });

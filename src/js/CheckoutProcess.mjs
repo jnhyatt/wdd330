@@ -1,4 +1,4 @@
-import { getLocalStorage, formDataToJSON } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, formDataToJSON } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 // takes the items currently stored in the cart (localstorage) and returns them in a simplified form.
@@ -84,6 +84,9 @@ export default class CheckoutProcess {
     delete order.securityCode;
     // call the checkout method in ExternalServices and send the order data
     const services = new ExternalServices();
-    return await services.checkout(order);
+    const response = await services.checkout(order);
+    setLocalStorage("so-cart", {});
+    window.location.href = "/thanks/index.html";
+    return response;
   }
 }

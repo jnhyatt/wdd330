@@ -344,3 +344,37 @@ footer {
   text-align: center;
   margin-top: 2rem;
 }
+
+.thanks-section {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.thanks-section h2 {
+  margin-bottom: 1rem;
+}
+
+.thanks-section p {
+  margin-bottom: 2rem;
+}
+
+.alert {
+  background-color: var(--primary-color);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert p {
+  margin: 0;
+  padding: 0;
+}
+
+.alert__close {
+  cursor: pointer;
+  font-weight: bold;
+  padding-left: 1rem;
+}
